@@ -1,5 +1,12 @@
 import React, {Component} from 'react';
-import {Container, Button, ListGroup, ListGroupItem} from 'reactstrap';
+import {
+    Container, Button, ListGroup, ListGroupItem
+} from 'reactstrap';
+import {
+    CSSTransition,
+    TransitionGroup,
+} from 'react-transition-group';
+import '../styles/Animations.css';
 import Back from "./Back";
 
 class HrefList extends Component {
@@ -7,9 +14,9 @@ class HrefList extends Component {
         super();
         this.state = {
             hrefs: [
-                {href: '1.html', text: 'ссылка 1'},
-                {href: '2.html', text: 'ссылка 2'},
-                {href: '3.html', text: 'ссылка 3'},
+                {href: 'lesson-7', text: 'Урок 7'},
+                {href: 'lesson8_2', text: 'Урок 8_2'},
+                {href: 'lesson8_3', text: 'Урок 8_3'},
             ],
         };
     }
@@ -35,17 +42,26 @@ class HrefList extends Component {
 
     render() {
         const list = this.state.hrefs.map((obj, index) => {
-            return <ListGroup>
-                <ListGroupItem key={index}>
-                    <a href={obj.href}>{obj.text}</a>
-                    <Button className="ml-5" color="danger" onClick={() => this.removeSelfItem(index)}>Remove</Button>
-                </ListGroupItem>
-            </ListGroup>
+            return <CSSTransition
+                key={index}
+                timeout={500}
+                classNames="item"
+                >
+                    <ListGroupItem key={index}>
+                        <Button className="mr-2" color="danger" onClick={() => this.removeSelfItem(index)}>&times;</Button>
+                        <a href={obj.href}>{obj.text}</a>
+                    </ListGroupItem>
+                </CSSTransition>
+
         });
         return (
             <Container>
                 <Back />
-                { list }
+                <ListGroup>
+                    <TransitionGroup>
+                        { list }
+                    </TransitionGroup>
+                </ListGroup>
                 <Button onClick={this.addHrefToList} className="mt-3" color="primary">Add href to list</Button>
             </Container>
         )
