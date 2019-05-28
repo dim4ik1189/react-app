@@ -35,6 +35,9 @@ function App () {
                 <NavItem>
                     <NavLink href="/fetching-dynamic-data">Fetching Dynamic Data</NavLink>
                 </NavItem>
+                <NavItem>
+                    <NavLink href="/magic-eight-ball">Magic Eight Ball</NavLink>
+                </NavItem>
             </Nav>
         </Container>
     )

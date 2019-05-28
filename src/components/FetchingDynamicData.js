@@ -4,7 +4,7 @@ import Contacts from './Contacts'
 
 class FetchingDynamicData extends Component {
     state = {
-        contacts: []
+        contacts: [],
     };
 
     componentDidMount() {

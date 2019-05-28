@@ -11,6 +11,7 @@ import Lesson8_3 from './Lesson8_3'
 import Lesson8_4 from './Lesson8_4'
 import Lesson8_5 from './Lesson8_5'
 import FetchingDynamicData from './FetchingDynamicData'
+import MagicEightBall from './MagicEightBall'
 
 const Router = () => (
     <BrowserRouter>
@@ -27,6 +28,7 @@ const Router = () => (
             <Route path="/lesson8_5" component={Lesson8_5}/>
             <Route path="/lesson8_5" component={Lesson8_5}/>
             <Route path="/fetching-dynamic-data" component={FetchingDynamicData}/>
+            <Route path="/magic-eight-ball" component={MagicEightBall}/>
 
         </Switch>
     </BrowserRouter>
