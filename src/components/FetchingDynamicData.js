@@ -22,6 +22,7 @@ class FetchingDynamicData extends Component {
         this.draggedItem = this.state.contacts[index];
         event.dataTransfer.effectAllowed = "move";
         event.dataTransfer.setData('text/html', event.target.parentNode);
+        event.dataTransfer.setDragImage(event.target.parentNode, 20, 20);
     };
 
     onDragOver = index => {

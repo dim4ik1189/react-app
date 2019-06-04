@@ -1,6 +1,7 @@
 import React, { Fragment } from 'react';
 import { Card, CardText, CardBody, CardTitle, CardSubtitle, Container } from 'reactstrap';
 import '../styles/Contacts.css'
+// import Hamburger from "../Icons/assets/hamburger.svg";
 
 const customCard = {
     minWidth: '20em',
@@ -18,8 +19,7 @@ const Contacts = ({contacts, onDragStart, onDragOver, onDragEnd}) =>  (
                                 className='drag'
                                 draggable
                                 onDragStart={e => onDragStart(e, index)}
-                                onDragEnd={onDragEnd}
-                            >
+                                onDragEnd={onDragEnd}>
                                 <CardTitle>
                                     <strong>{ contact.name }</strong>
                                 </CardTitle>

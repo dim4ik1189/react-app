@@ -10,6 +10,9 @@ import Lesson8_2 from './Lesson8_2'
 import Lesson8_3 from './Lesson8_3'
 import Lesson8_4 from './Lesson8_4'
 import Lesson8_5 from './Lesson8_5'
+import Lesson8_6 from './Lesson8_6'
+import Clock from './Clock';
+
 import FetchingDynamicData from './FetchingDynamicData'
 import MagicEightBall from './MagicEightBall'
 
@@ -26,7 +29,9 @@ const Router = () => (
             <Route path="/lesson8_3" component={Lesson8_3}/>
             <Route path="/lesson8_4" component={Lesson8_4}/>
             <Route path="/lesson8_5" component={Lesson8_5}/>
-            <Route path="/lesson8_5" component={Lesson8_5}/>
+            <Route path="/lesson8_6" component={Lesson8_6}/>
+            <Route path="/CSS_Clock" component={Clock}/>
+
             <Route path="/fetching-dynamic-data" component={FetchingDynamicData}/>
             <Route path="/magic-eight-ball" component={MagicEightBall}/>
 

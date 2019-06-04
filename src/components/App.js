@@ -33,10 +33,16 @@ function App () {
                     <NavLink href="/lesson8_5"> Go to Lesson 8.5</NavLink>
                 </NavItem>
                 <NavItem>
+                    <NavLink href="/lesson8_6"> Go to Lesson 8.6</NavLink>
+                </NavItem>
+                <NavItem>
                     <NavLink href="/fetching-dynamic-data">Fetching Dynamic Data</NavLink>
                 </NavItem>
                 <NavItem>
                     <NavLink href="/magic-eight-ball">Magic Eight Ball</NavLink>
+                </NavItem>
+                <NavItem>
+                    <NavLink href="/CSS_Clock">CSS Clock</NavLink>
                 </NavItem>
             </Nav>
         </Container>

@@ -1,6 +1,7 @@
-import React, { Component, Fragment } from 'react';
+import React, { Component } from 'react';
 import Back from './Back';
-import { ListGroup, ListGroupItem, Input } from "reactstrap";
+import { ListGroup, ListGroupItem, Input, Container } from "reactstrap";
+import contentEditable from '../helpers/contentEditable'
 
 class Lesson8_6 extends Component {
     state = {
@@ -13,30 +14,34 @@ class Lesson8_6 extends Component {
 
     onInputChange = event => {
         console.log(event.target);
-        // let users = [...this.state.users];
-        // const { name, value } = event.target;
+        let users = [...this.state.users];
+        const { name, value } = event.target;
 
-        // const [ user ] = users.filter(user => user.name === name);
-        // let index = users.indexOf(user);
-        //
-        // user.name = value;
-        // users.splice(index, 1, user);
-        //
-        // this.setState({
-        //     users
-        // })
+        const [ user ] = users.filter(user => user.name === name);
+        let index = users.indexOf(user);
+
+        user.name = value;
+        users.splice(index, 1, user);
+
+        this.setState({
+            users
+        })
     };
 
     render() {
+        const EditableLI = contentEditable('h2');
         const users = this.state.users.map((user, index) => (
-
+            <ListGroup key={index}>
+                <EditableLI value={user.name}/>
+            </ListGroup>
         ));
 
         return (
-            <Fragment>
+            <Container>
+
                 <Back />
                 { users }
-            </Fragment>
+            </Container>
         )
     }
 }
