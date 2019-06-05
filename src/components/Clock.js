@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import {Container} from 'reactstrap'
-import '../styles/Clock.css'
+import {Container} from 'reactstrap';
+import '../styles/Clock.css';
+import Back from './Back';
 
 export default class Clock extends Component {
     state = {
@@ -48,6 +49,7 @@ export default class Clock extends Component {
     render() {
         return (
             <Container>
+                <Back />
                 <div className="clock">
                     <div className="clock-face">
                         <div className="hand hour-hand" style={{transform: `rotate(${this.state.hours}deg)`, transition: this.state.transition}}/>

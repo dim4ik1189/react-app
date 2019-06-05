@@ -19,10 +19,6 @@ export default class MyForm extends Component {
             year: '',
             selectedWeekDay: ''
         };
-        // this.handleInputChange = this.handleInputChange.bind(this);
-        // this.handleSubmit = this.handleSubmit.bind(this);
-        // this.functionFillingArrays = this.functionFillingArrays.bind(this);
-        // this.onInputChange = this.onInputChange.bind(this);
     }
 
     async componentDidMount() {
@@ -128,23 +124,31 @@ export default class MyForm extends Component {
                         <Button color="info" type="submit">Submit</Button>
                     </FormGroup>
                     <FormGroup>
-                        <Input type="select" name="day" value={this.state.day} onChange={this.onInputChange}>
-                            { days }
-                        </Input>
-                        <br />
+                        <Label for="day">
+                            Day</Label>
 
-                        <Input type="select" name="month" value={this.state.month} onChange={this.onInputChange}>
-                            { months }
-                        </Input>
-                        <br />
+                        <Input type="select" name="day" id="day" value={this.state.day} onChange={this.onInputChange}>
+                                { days }
+                            </Input>
 
-                        <Input type="select" name="year" value={this.state.year} onChange={this.onInputChange}>
-                            { years }
-                        </Input>
                         <br />
+                        <Label for="month">
+                            Month</Label>
 
+                        <Input type="select" name="month" id="month" value={this.state.month} onChange={this.onInputChange}>
+                                { months }
+                            </Input>
+
+                        <br />
+                        <Label for="year">
+                            Year</Label>
+
+                        <Input type="select" name="year" id="year" value={this.state.year} onChange={this.onInputChange}>
+                                { years }
+                            </Input>
+
+                        <br />
                         <p> { weekDay }</p>
-
                     </FormGroup>
                 </Form>
             </Container>

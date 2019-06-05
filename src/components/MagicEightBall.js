@@ -1,22 +1,35 @@
 import React, { Component } from 'react';
 import { Button, Input, Container} from 'reactstrap';
-import Back from './Back'
+import Back from './Back';
 
+import { CSSTransition } from "react-transition-group";
 import '../styles/Animations.css';
 
 class MagicEightBall extends Component {
     state = {
         userInput: '',
-        randomIndex: ''
+        randomIndex: '',
+        showAnswer: false
     };
 
     ask = () => {
         if(this.state.userInput) {
             this.setState({
                 randomIndex: Math.floor(Math.random() * 20),
-                userInput: ''
-            })
+                userInput: '',
+                showAnswer: true
+            });
+
+            this.switchShowAnswer();
         }
+    };
+
+    switchShowAnswer = () => {
+        setTimeout(() => {
+            this.setState(state => ({
+                showAnswer: !state.showAnswer
+            }))
+        }, 1500)
     };
 
     handleChange = (event) => {
@@ -26,28 +39,7 @@ class MagicEightBall extends Component {
     };
 
     render() {
-        const possibleAnswers = [
-            'It is certain',
-            'It is decidedly so',
-            'Without a doubt',
-            'Yes, definitely',
-            'You may rely on it',
-            'As I see it, yes',
-            'Outlook good',
-            'Yes',
-            'Signs point to yes',
-            'Reply hazy try again',
-            'Ask again later',
-            'Better not tell you now',
-            'Cannot predict now',
-            'Concentrate and ask again',
-            'Don\'t count on it',
-            'My reply is no',
-            'My sources say no',
-            'Most likely',
-            'Outlook not so good',
-            'Very doubtful'
-        ];
+        const { customProps: possibleAnswers } = this.props;
         const answer = possibleAnswers[this.state.randomIndex];
         const alignCenter = {
             display: 'flex',
@@ -64,13 +56,20 @@ class MagicEightBall extends Component {
                 <Back />
                 <Container style={alignCenter} className="mt-5 col-12">
                     <Input className="col-6"
-                           placeholder="Your question?"
+                           placeholder="Only Yes / No questions"
                            type="text"
                            value={this.state.userInput}
                            onChange={this.handleChange}/>
                     <Button color="primary" className="col-2 mt-3" onClick={this.ask}>Ask the Magic ball</Button>
                     <br/>
-                    <h2 style={font}> {answer} </h2>
+                    <CSSTransition
+                        in={this.state.showAnswer}
+                        timeout={500}
+                        classNames="item"
+                        unmountOnExit
+                        appear>
+                        <h2 style={font}> {answer} </h2>
+                    </CSSTransition>
                 </Container>
             </Container>
         );

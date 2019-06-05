@@ -1,7 +1,6 @@
 import React, { Fragment } from 'react';
 import { Card, CardText, CardBody, CardTitle, CardSubtitle, Container } from 'reactstrap';
 import '../styles/Contacts.css'
-// import Hamburger from "../Icons/assets/hamburger.svg";
 
 const customCard = {
     minWidth: '20em',

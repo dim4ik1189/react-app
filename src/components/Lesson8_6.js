@@ -1,46 +1,42 @@
 import React, { Component } from 'react';
 import Back from './Back';
+import MailBox from './MailBox'
 import { ListGroup, ListGroupItem, Input, Container } from "reactstrap";
 import contentEditable from '../helpers/contentEditable'
 
 class Lesson8_6 extends Component {
     state = {
-        users: [
-            {name: 'Коля', surname: 'Иванов', age: 30, allowEdit: true},
-            {name: 'Вася', surname: 'Петров', age: 40, allowEdit: true},
-            {name: 'Петя', surname: 'Сидоров', age: 50, allowEdit: false},
-        ],
+        show: false
     };
 
-    onInputChange = event => {
-        console.log(event.target);
-        let users = [...this.state.users];
-        const { name, value } = event.target;
-
-        const [ user ] = users.filter(user => user.name === name);
-        let index = users.indexOf(user);
-
-        user.name = value;
-        users.splice(index, 1, user);
-
-        this.setState({
-            users
-        })
+    showMessages = () => {
+        this.setState(state => ({
+            show: !state.show
+        }))
     };
 
     render() {
+        const {customProps: messages} = this.props;
         const EditableLI = contentEditable('h2');
-        const users = this.state.users.map((user, index) => (
-            <ListGroup key={index}>
-                <EditableLI value={user.name}/>
-            </ListGroup>
-        ));
+        const show = this.state.show;
+        let messageList;
 
+        if(show) {
+            messageList = messages.map((value, index) => (
+                <ListGroupItem key={index}>
+                    <ListGroup>
+                        <EditableLI value={value}/>
+                    </ListGroup>
+                </ListGroupItem>
+            ))
+        }
         return (
             <Container>
-
                 <Back />
-                { users }
+                <MailBox messagesLength={messages.length}
+                         showMessages={this.showMessages}
+                         show={show}/>
+                { messageList }
             </Container>
         )
     }

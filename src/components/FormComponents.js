@@ -32,20 +32,13 @@ class FormComponents extends Component {
         };
     }
 
-    onInputChange = event => {
-        const { name, value } = event.target;
+    onInputChange = event => { //input and checkbox change
+        const { name } = event.target;
+        const value = event.target.type === 'checkbox' ? event.target.checked : event.target.value;
 
         this.setState({
             [name]: value
         })
-    };
-
-    onCheckboxChange = event => {
-        const { name } = event.target;
-
-        this.setState(prevState => ({
-            [name]: !prevState[name]
-        }))
     };
 
     onRadioChange = event => {
@@ -148,7 +141,7 @@ class FormComponents extends Component {
                     </FormGroup>
                     <FormGroup check>
                         <Label>
-                            <Input type="checkbox" checked={this.state.checked} name="checked" onChange={this.onCheckboxChange}/>
+                            <Input type="checkbox" checked={this.state.checked} name="checked" onChange={this.onInputChange}/>
                             {this.state.checked ? 'checked' : 'not checked'}
                         </Label>
                     </FormGroup>
@@ -213,7 +206,7 @@ class FormComponents extends Component {
                     </FormGroup>
                     <FormGroup>
                         <Input type="text" value={this.state.inputBoolean} disabled={!this.state.checked} name="inputBoolean" onChange={this.onInputChange}/>
-                        <Input type="checkbox" checked={this.state.inputBoolean} name="inputBoolean" onChange={this.onCheckboxChange}/>
+                        <Input type="checkbox" checked={this.state.inputBoolean} name="inputBoolean" onChange={this.onInputChange}/>
                     </FormGroup>
                 </Form>
             </Container>
