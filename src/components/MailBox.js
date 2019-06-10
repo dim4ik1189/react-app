@@ -5,8 +5,7 @@ const MailBox = props => {
     const messagesLength = props.messagesLength;
     const showMessages = props.showMessages;
     return (
-        <div>
-            <h1>Hello</h1>
+        <div className="mt-3">
             {
                 messagesLength > 0 &&
                     <h2>
