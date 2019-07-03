@@ -4,16 +4,13 @@ import CheckBox from './CheckBox'
 import Back from './Back'
 
 class Lesson7 extends Component {
-    constructor() {
-        super();
-        this.state = {
-            cars: ['BMW', 'Honda', 'Vaz', 'Nissan'],
-            BMW: false,
-            Honda: false,
-            Vaz: false,
-            Nissan: false
-        };
-    }
+    state = {
+        cars: ['BMW', 'Honda', 'Vaz', 'Nissan'],
+        BMW: false,
+        Honda: false,
+        Vaz: false,
+        Nissan: false
+    };
 
     handleCheckBoxChange = event => {
         const { name } = event.target;
@@ -51,9 +48,7 @@ class Lesson7 extends Component {
         return (
             <Container>
                 <Back />
-                {
-                    cars
-                }
+                { cars }
             </Container>
         )
     }
