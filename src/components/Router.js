@@ -9,7 +9,8 @@ const Router = () => (
             <Route exact path="/" render={() => <App paths={paths}/>}/>
             {
                 routes.map(({path, component: C, customProps}) => (
-                    <Route path={path}
+                    <Route key={path}
+                           path={path}
                            render={(props) => <C {...props} customProps={customProps}/>}
                     />
                 ))

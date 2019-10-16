@@ -28,6 +28,7 @@ export default class Clock extends Component {
         const seconds = now.getSeconds();
         const minutes = now.getMinutes();
         const hours = now.getHours();
+        console.log(now.toLocaleTimeString());
 
         const secondsDegrees = ((seconds / 60) * 360) + 90;
         const minutesDegrees = minutes / 60 * 360 + seconds / 60 * 6 + 90;
@@ -56,23 +57,21 @@ export default class Clock extends Component {
                         <div className="hand minute-hand" style={{transform: `rotate(${this.state.minutes}deg)`, transition: this.state.transition}}/>
                         <div className="hand seconds-hand" style={{transform: `rotate(${this.state.seconds}deg)`, transition: this.state.transition}}/>
                     </div>
-
                     <div>
                         <ol>
-                            <li className="clock-numbers"></li>
-                            <li className="clock-numbers"></li>
-                            <li className="clock-numbers"></li>
-                            <li className="clock-numbers"></li>
-                            <li className="clock-numbers"></li>
-                            <li className="clock-numbers"></li>
-                            <li className="clock-numbers"></li>
-                            <li className="clock-numbers"></li>
-                            <li className="clock-numbers"></li>
-                            <li className="clock-numbers"></li>
-                            <li className="clock-numbers"></li>
-                            <li className="clock-numbers"></li>
+                            <li className="clock-numbers"/>
+                            <li className="clock-numbers"/>
+                            <li className="clock-numbers"/>
+                            <li className="clock-numbers"/>
+                            <li className="clock-numbers"/>
+                            <li className="clock-numbers"/>
+                            <li className="clock-numbers"/>
+                            <li className="clock-numbers"/>
+                            <li className="clock-numbers"/>
+                            <li className="clock-numbers"/>
+                            <li className="clock-numbers"/>
+                            <li className="clock-numbers"/>
                         </ol>
-
                     </div>
                 </div>
             </Container>

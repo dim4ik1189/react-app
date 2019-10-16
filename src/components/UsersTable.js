@@ -57,7 +57,7 @@ class UsersTable extends Component {
         return (
             <Container>
                 <Back />
-                <Modal isOpen={this.state.modal} toggle={this.toggleModal}>
+                <Modal isOpen={this.state.modal}>
                     <ModalHeader toggle={this.toggleModal}>
                         Adding user
                     </ModalHeader>
@@ -94,6 +94,5 @@ class UsersTable extends Component {
         )
     }
 }
-
 
 export default UsersTable;

@@ -9,6 +9,9 @@ import Lesson8_4 from '../components/Lesson8_4'
 import Lesson8_5 from '../components/Lesson8_5'
 import Lesson8_6 from '../components/Lesson8_6'
 import Clock from '../components/Clock';
+import SimpleForm from '../components/SimpleForm';
+import UsersTableOnHooks from '../components/UsersTableOnHooks';
+import ClockOnHooks from '../components/ClockOnHooks';
 
 import FetchingDynamicData from '../components/FetchingDynamicData'
 import MagicEightBall from '../components/MagicEightBall'
@@ -28,7 +31,10 @@ export const routes = [
     { path: "/lesson8_6", component: Lesson8_6, customProps: messages },
     { path: "/CSS_Clock", component: Clock, customProps: null },
     { path: "/fetching-dynamic-data", component: FetchingDynamicData, customProps: null },
-    { path: "/magic-eight-ball", component: MagicEightBall, customProps: possibleAnswers }
+    { path: "/magic-eight-ball", component: MagicEightBall, customProps: possibleAnswers },
+    { path: "/Simple-Form", component: SimpleForm, customProps: null },
+    { path: "/Table-on-hooks", component: UsersTableOnHooks, customProps: null },
+    { path: "/Clock-on-hooks", component: ClockOnHooks, customProps: null },
 ];
 
 export const paths = routes.map(({path}) => ({path})); // extracting paths for App component

@@ -4,33 +4,30 @@ import '../styles/App.css';
 import Back from './Back'
 
 class FormComponents extends Component {
-    constructor() {
-        super();
-        this.state = {
-            textarea: 'Hello',
-            checked: true,
-            cities: [
-                {name: 'Chisinau', population: 523341},
-                {name: 'Istanbul', population: 49999444},
-                {name: 'Copenhagen', population: 1235555341},
-                {name: 'Bern', population: 1266663341},
-            ],
-            city: '',
-            radio: '',
-            texts: [],
-            text: '',
-            colors: ['primary', 'secondary', 'success', 'info', 'warning', 'danger'],
-            color: '',
-            checkedValues: ['Not Checked', 'Checked'],
-            checkedVal: '',
-            checkedBool: false,
-            selList: ['', 1, 2, 3],
-            sel: '',
-            options: [],
-            option: '',
-            inputBoolean: false
-        };
-    }
+    state = {
+        textarea: 'Hello',
+        checked: true,
+        cities: [
+            {name: 'Chisinau', population: 523341},
+            {name: 'Istanbul', population: 49999444},
+            {name: 'Copenhagen', population: 1235555341},
+            {name: 'Bern', population: 1266663341},
+        ],
+        city: '',
+        radio: '',
+        texts: [],
+        text: '',
+        colors: ['primary', 'secondary', 'success', 'info', 'warning', 'danger'],
+        color: '',
+        checkedValues: ['Not Checked', 'Checked'],
+        checkedVal: '',
+        checkedBool: false,
+        selList: ['', 1, 2, 3],
+        sel: '',
+        options: [],
+        option: '',
+        inputBoolean: false
+    };
 
     onInputChange = event => { //input and checkbox change
         const { name } = event.target;
